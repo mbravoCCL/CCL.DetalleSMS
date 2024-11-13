@@ -21,11 +21,9 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './detalle-sms.component.scss'
 })
 export default class DetalleSMSComponent implements OnInit, AfterViewInit {
-  displayedColumns: string[] = ['nombreCompleto', 'telefono', 'status', 'enviado', 'carrier', 'sms'];
+  displayedColumns: string[] = ['nombreCompleto', 'empresa', 'telefono', 'status', 'enviado', 'carrier', 'sms'];
   dataSource: MatTableDataSource<Destinatario> = new MatTableDataSource<Destinatario>([]);
-  evento: string = "";
-  estado: string = "";
-  solicitud: string = "";
+  detalleSmsResponse! : DetalleEnvioSMSResponse;
   loading: boolean = true;
   error :boolean = false;
   pieData: Pie [] = [];
@@ -51,9 +49,8 @@ export default class DetalleSMSComponent implements OnInit, AfterViewInit {
       .subscribe({
         next: (data: DetalleEnvioSMSResponse) => {
           this.loading = false; 
-          this.evento = data.evento;
-          this.solicitud = data.solicitud;
-          this.estado = data.estadoSolicitud;
+          this.detalleSmsResponse = data;
+
           const destinatarios = data.destinatarios ?? [];
           this.dataSource.data = destinatarios;
         

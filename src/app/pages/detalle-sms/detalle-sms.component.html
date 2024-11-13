@@ -3,7 +3,7 @@
 @if(!loading){
 
 
-    @switch (estado) {
+    @switch (detalleSmsResponse.estadoSolicitud) {
         @case ("EN PROCESO") {
             <div class="containerccl">
                 <div class="error-message">
@@ -18,11 +18,15 @@
                     <div class="filtrosccl-grow1">
                         <div class="info-item">
                             <p class="label">Evento:</p>
-                            <p class="value">{{evento}}</p>
+                            <p class="value">{{detalleSmsResponse.evento}}</p>
+                        </div>
+                        <div class="info-item">
+                            <p class="label">Programación del Evento:</p>
+                            <p class="value">{{detalleSmsResponse.fechaInicio | date:'dd/MM/yyyy hh:mm a' }} al {{detalleSmsResponse.fechaFin | date:'dd/MM/yyyy hh:mm a' }}</p>
                         </div>
                         <div class="info-item">
                             <p class="label">Asunto De Solicitud Masiva:</p>
-                            <p class="value">{{solicitud}}</p>
+                            <p class="value">{{detalleSmsResponse.solicitud}}</p>
                         </div>
                         <mat-form-field>
                             <mat-label>Buscar</mat-label>
@@ -42,7 +46,10 @@
                             <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre Completo </th>
                             <td mat-cell *matCellDef="let row"> {{row.nombreCompleto}} </td>
                         </ng-container>
-            
+                        <ng-container matColumnDef="empresa">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Empresa </th>
+                            <td mat-cell *matCellDef="let row"> {{row.empresa}} </td>
+                        </ng-container>
                         <!-- Teléfono Column -->
                         <ng-container matColumnDef="telefono">
                             <th mat-header-cell *matHeaderCellDef mat-sort-header> Teléfono </th>
