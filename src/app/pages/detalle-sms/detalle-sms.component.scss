@@ -23,6 +23,7 @@
 }
 
 .label {
+    display: flex;
     font-weight: bold;
     color: #333; 
 }
@@ -120,3 +121,9 @@
 .title {
     color : #0071B6
 }
+
+
+.material-icons, .fa-icon {
+    margin-right: 8px;
+    color: #0071B6;
+  }

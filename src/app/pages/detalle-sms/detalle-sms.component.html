@@ -17,15 +17,15 @@
                 <div class="filtrosccl">
                     <div class="filtrosccl-grow1">
                         <div class="info-item">
-                            <p class="label">Evento:</p>
+                            <p class="label"><span class="material-icons">event</span> Evento:</p>
                             <p class="value">{{detalleSmsResponse.evento}}</p>
                         </div>
                         <div class="info-item">
-                            <p class="label">Programación del Evento:</p>
+                            <p class="label"><span class="material-icons">schedule</span> Programación del Evento:</p>
                             <p class="value">{{detalleSmsResponse.fechaInicio | date:'dd/MM/yyyy hh:mm a' }} al {{detalleSmsResponse.fechaFin | date:'dd/MM/yyyy hh:mm a' }}</p>
                         </div>
                         <div class="info-item">
-                            <p class="label">Asunto De Solicitud Masiva:</p>
+                            <p class="label"><span class="material-icons">subject</span>Asunto De Solicitud Masiva:</p>
                             <p class="value">{{detalleSmsResponse.solicitud}}</p>
                         </div>
                         <mat-form-field>
