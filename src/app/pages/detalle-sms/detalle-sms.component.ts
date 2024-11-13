@@ -58,7 +58,7 @@ export default class DetalleSMSComponent implements OnInit, AfterViewInit {
           const rechazados = destinatarios.filter(x => x.status === "RECHAZADO").length;
         
           this.pieData = [
-            { name: "Aprobados", value: enviados },
+            { name: "Entregados", value: enviados },
             { name: "Rechazados", value: rechazados }
           ];
           
